@@ -1,0 +1,38 @@
+img {
+    height: 340px;
+    border: 10px solid #4d4dff;
+}
+
+body {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #e6ffff;
+}
+
+h1 {
+    -webkit-margin-after: .10em;
+}
+
+
+p {
+    -webkit-margin-before: .10em;
+}
+
+.audio-container {
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes example {
+    from {background-color: #e6ffff;}
+    to {background-color: #000066;}
+}
+div {
+    width: 400px;
+    height: 400px;
+    background-color: #e6ffff;
+    animation-name: example;
+    animation-duration: 10s;
+}
