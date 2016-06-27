@@ -1,20 +1,29 @@
 img {
     height: 340px;
-    border: 10px solid #4d4dff;
 }
 
+@keyframes pulse {
+        0%, 100% {
+            background-color: #ffffff;
+        }
+        46%, 54% {
+            background-color: #000000;
+        }
+        23%, 77% {
+            background-color: blue;
+        }
+}
 body {
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #e6ffff;
+    animation: pulse infinite 15s;
 }
 
 h1 {
     -webkit-margin-after: .10em;
 }
 
-
-p {
+h2 {
     -webkit-margin-before: .10em;
 }
 
@@ -25,14 +34,11 @@ p {
     right: 0;
 }
 
-@keyframes example {
-    from {background-color: #e6ffff;}
-    to {background-color: #000066;}
-}
-div {
-    width: 400px;
-    height: 400px;
-    background-color: #e6ffff;
-    animation-name: example;
-    animation-duration: 10s;
+.strokeme {
+    color: black;
+    text-shadow:
+    -1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,
+    1px -1px 0 #ffffff;
 }
