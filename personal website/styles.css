@@ -3,15 +3,15 @@ img {
 }
 
 @keyframes pulse {
-        0%, 100% {
+    0%, 100% {
             background-color: #ffffff;
-        }
-        46%, 54% {
-            background-color: #000000;
-        }
-        23%, 77% {
-            background-color: blue;
-        }
+    }
+    46%, 54% {
+        background-color: #000000;
+    }
+    23%, 77% {
+        background-color: blue;
+    }
 }
 body {
     text-align: center;
@@ -41,4 +41,10 @@ h2 {
     -1px 1px 0 #ffffff,
     1px 1px 0 #ffffff,
     1px -1px 0 #ffffff;
+}
+/*add img b/w background & dragonfly+text*/
+
+.rat {
+    top: 0px;
+    left: 0px;
 }
