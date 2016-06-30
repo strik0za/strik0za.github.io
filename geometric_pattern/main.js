@@ -5,7 +5,7 @@ var rVal;
 var gVal;
 var bVal;
 var ballY = 0;
-var speed = 30;
+var speed = 100;
 var ballX = 0;
 
 function setup() {
