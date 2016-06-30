@@ -55,16 +55,17 @@ function draw() {
     strokeWeight(10);
     ballY = ballY + speed;
     ellipse(width/2, ballY, 100, 100);
-        if (ballY <= 0) {
+        if (ballY < 0) {
             speed = 30;
+            ellipse(width/2, 0, 200, 50);
         }
-        if (ballY >= height) {
+        if (ballY > height) {
             speed = -30;
-        } else {
-            fill(color(51, 204, 51));
-            ellipse(width/2, 0, 250, 50);
-            ellipse(width/2, height, 250, 50);
+            ellipse(width/2, height, 200, 50);
         }
+    /*fill(color(51, 204, 51));
+    ellipse(width/2, 0, 250, 50);
+    ellipse(width/2, height, 250, 50);*/
     /*fill(color(51, 51, 204));
     ballX = ballX + speed;
     ellipse(ballX, height/2, 100, 100);
