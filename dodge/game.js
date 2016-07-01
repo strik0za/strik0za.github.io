@@ -82,6 +82,6 @@ function score() {
     if (enemy.position.y < player.position.x) {
         amountDodged ++;
     } else {
-        amountDodged = 0;
+        amountDodged == 0;
     }
 }
