@@ -78,10 +78,8 @@ function preload() {
 
 function score() {
     fill("white");
-    text("Score: " + amountDodged, height/2, width/2);
-    if (enemy.position.y < player.position.x) {
+    text("Score: " + amountDodged, width - 70, 10);
+    if (enemy.position.y > player.position.x) {
         amountDodged ++;
-    } else {
-        amountDodged == 0;
     }
 }
