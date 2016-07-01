@@ -4,7 +4,7 @@ var enemy;
 var enemyImage;
 var isGameOver;
 var backgroundImage;
-var amountDodged;
+var amountDodged = 0;
 
 function setup() {
     createCanvas (500,500);
@@ -79,7 +79,7 @@ function preload() {
 function score() {
     fill("white");
     text("Score: " + amountDodged, width - 70, 10);
-    if (enemy.position.y > player.position.x) {
+    if (enemy.position.y == height) {
         amountDodged ++;
     }
 }
