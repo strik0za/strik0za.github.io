@@ -1,9 +1,9 @@
 var returnWorks;
 var testRandom = ['1', '2', '3', '4'];
 function rand() {
-    console.log("work");
+    //console.log("work");
     returnWorks = testRandom[Math.floor(Math.random() * testRandom.length)];
-    console.log(returnWorks);
+    //console.log(returnWorks);
     var anything = document.createElement("p");
     var node = document.createTextNode(returnWorks);
     anything.appendChild(node);
