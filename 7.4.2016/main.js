@@ -15,7 +15,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(600, 600);
     background(0);
     img = [fireworks1, fireworks2, fireworks3, fireworks4];
 }
