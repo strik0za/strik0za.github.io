@@ -27,7 +27,9 @@ function setup() {
 //     }
 // }
 
+
 function mousePressed() {
+    background(0);
     rand = img[Math.floor(Math.random() * img.length)];
     image(rand, (mouseX - (rand.width/2)), (mouseY - (rand.height/2)));
 }
