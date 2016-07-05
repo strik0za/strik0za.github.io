@@ -8,13 +8,13 @@ var x = 250;
 var y = 250;
 var mouseX = 250;
 var mouseY = 250;
-var velocity = 5;
+var velocity = 2;
 var sRadius = 10;
 var bRadius = 40;
 
 function clearCanvas() {
     context.beginPath();
-    context.rect(0, 0, 500, 500);
+    context.rect(0, 0, 600, 600);
     context.fillStyle = "white";
     context.fill();
 }
@@ -92,7 +92,7 @@ drawScreen();
 
 function gameOver() {
     context.beginPath();
-    context.rect(0, 0, 500, 500);
+    context.rect(0, 0, 600, 600);
     context.fillStyle = "navy";
     context.fill();
     
