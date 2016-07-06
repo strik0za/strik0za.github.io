@@ -1,6 +1,6 @@
-var arrayOfFoodObjects = [];
+var arrayOfGreenFoodObjects = [];
     for (var i = 0; i < 50; i++) {
-        arrayOfFoodObjects.push(createFoodObject());
+        arrayOfGreenFoodObjects.push(createGreenFoodObject());
     }
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -9,8 +9,9 @@ var y = 250;
 var mouseX = 250;
 var mouseY = 250;
 var velocity = 2;
-var sRadius = 10;
+var sGreenRadius = 10;
 var bRadius = 40;
+var isGameOver;
 
 function clearCanvas() {
     context.beginPath();
@@ -36,27 +37,29 @@ function calculatePosition() {
 }
 
 function drawScreen() {
-    if (arrayOfFoodObjects.length == 0) {
+    if (arrayOfGreenFoodObjects.length == 0) {
         gameOver();
+        isGameOver = true;
     } else {
             clearCanvas();
         calculatePosition();
         drawBigCircle();
-        for (var n = 0; n < arrayOfFoodObjects.length; n++) {
+        for (var n = 0; n < arrayOfGreenFoodObjects.length; n++) {
             
-            var sCircle = arrayOfFoodObjects[n];
+            var sCircle = arrayOfGreenFoodObjects[n];
             
-            if (bRadius + sRadius> Math.sqrt(Math.pow(Math.abs(x - sCircle.position.x), 2) + Math.pow(Math.abs(y - sCircle.position.y), 2))) {
-                arrayOfFoodObjects.splice(n, 1);
+            if (bRadius + sGreenRadius> Math.sqrt(Math.pow(Math.abs(x - sCircle.position.x), 2) + Math.pow(Math.abs(y - sCircle.position.y), 2))) {
+                arrayOfGreenFoodObjects.splice(n, 1);
                 bRadius += 3;
             }
             context.beginPath();
-            context.arc(sCircle.position.x, sCircle.position.y, sRadius, 0, 2*3.141592655);
+            context.arc(sCircle.position.x, sCircle.position.y, sGreenRadius, 0, 2*3.141592655);
             context.fillStyle = sCircle.color;
             context.fill();
         }
     
         setTimeout(drawScreen, 1000/60);
+        isGameOver = false;
     }
 }
 
@@ -65,7 +68,7 @@ function mouseMoved(e) {
     mouseY = e.clientY;
 }
 
-function createFoodObject() {
+function createGreenFoodObject() {
     return {
         color: "Lime",
         position: {
@@ -87,7 +90,6 @@ function drawBigCircle() {
 //so it follows mouse
 canvas.addEventListener("mousemove", mouseMoved);
 
-//so you start with circle in middle--not very necessary
 drawScreen();
 
 function gameOver() {
@@ -95,5 +97,15 @@ function gameOver() {
     context.rect(0, 0, 600, 600);
     context.fillStyle = "navy";
     context.fill();
+    isGameOver;
+    document.onclick = restart();
+    console.log("onclick works");
     
 }
+
+function restart() {
+    drawScreen();
+    console.log("restart works");
+}
+
+//none of the things to restart it, or 4 click, works--console.log doesn't print
