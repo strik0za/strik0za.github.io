@@ -17,8 +17,7 @@ var notColor = 0;
 function setup() {
     var canvas = createCanvas(400, 400);
     background(255);
-    console.log(color);
-    fill(notColor);
+    fill(notColor, notColor, notColor);
     noStroke();
     pointsData.on("child_added", function(point) {
         points.push(point.val());
@@ -72,9 +71,8 @@ function decreaseRadius() {
     radius -= 4;
 }
 
-// $("#changeColor").on("click", changeColor);
+$("#changeColor").on("click", changeColor);
 
-// function changeColor() {
-//     color = Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255);
-//     console.log("color");
-// }
+function changeColor() {
+    notColor = Math.floor(Math.random() * 255);
+}
