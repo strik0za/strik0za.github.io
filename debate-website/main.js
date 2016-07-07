@@ -1,77 +1,82 @@
-var showRandomResolution;
-var Resolution = ["Food Is Generally Good", "Man is Evil", "College Does More Harm Than Good", "Spiderman is Superior to Batman"];
-function randomResolution() {
-    showRandomResolution = Resolution[Math.floor(Math.random() * Resolution.length)];
-    var show = document.createElement("p");
-    var showShow = document.createTextNode(showRandomResolution);
-    show.appendChild(showShow);
-    var noMas = document.getElementById("element");
-    noMas.appendChild(show);
-}
-
-randomResolution();
-
-// var returnWorks;
-// var testRandom = ['1', '2', '3', '4'];
-// function rand() {
-//     //console.log("work");
-//     returnWorks = testRandom[Math.floor(Math.random() * testRandom.length)];
-//     //console.log(returnWorks);
-//     var anything = document.createElement("p");
-//     var node = document.createTextNode(returnWorks);
-//     anything.appendChild(node);
-//     var rando = document.getElementById("whatever");
-//     rando.appendChild(anything);
-// }
-
-// rand();
+//firebase stuff
 var config = {
-    apiKey: "AIzaSyCRlUIU5WvhRE951elcMgg0cUbCfm3vd1E",
-    authDomain: "chat-app-77b76.firebaseapp.com",
-    databaseURL: "https://chat-app-77b76.firebaseio.com",
-    storageBucket: "chat-app-77b76.appspot.com",
+    apiKey: "AIzaSyBC-uuFpUSzewBOmf1qlc6AzM0ttJO9tH4",
+    authDomain: "debate-website-fd686.firebaseapp.com",
+    databaseURL: "https://debate-website-fd686.firebaseio.com",
+    storageBucket: "debate-website-fd686.appspot.com",
 };
+
 firebase.initializeApp(config);
 
-var argData = firebase.database().ref();
+//pro stuff
+var database = firebase.database().ref();
 
-// function pushOpinion(event) {
-//     if (event.keyCode == 13) {
-//         var proArg = $('#pro_argument').val();
-//         var conArg = $('#con_argument').val();
-//         argData.push({proArg: proArg, conArg: conArg});
-//         $('#pro_argument').val('');
-//         $('#con_argument').val('');
-//     }
-// }
-
-// argData.on("child_added", showOpinion);
-
-// function showMessage(msg) {
-//     var proMessage = msg.val();
-//     var proMessageSender = text("Pro: ")
-//     var messageContent = message.proArg;
-    
-//     var messageEl = $("<div/>").addClass("message");    
-//     var senderEl = $("<span/>").text(messageSender + ": ");
-//     var contentEl = $("<span/>").text(messageContent);
-    
-//     messageEl.append(senderEl);
-//     messageEl.append(contentEl);    
-//     $('#messages').append(messageEl);
-// }
-
-// $('#pro_argument').keypress(pushMessage);
-// $('#con_argument').keypress(pushMessage);
-
-
-$("#Pro-Argument").on("click", proArgument);
-function proArgument() {
-    argData.push({opinion: true});
+function pushPMessage(event) {
+    pushMessage(event, "Pro");
 }
 
-$("#Con-Argument").on("click", conArgument);
-function conArgument() {
-    argData.push({opinion: false});
+function pushCMessage(event) {
+    pushMessage(event, "Con");
 }
 
+
+function pushMessage(event, type) {
+    if (event.keyCode == 13) {
+        var arg = $("#" + type).val();
+        database.push({type: type, text: arg});
+        $("#" + type).val("");
+    }
+}
+
+$("#Pro").keypress(pushPMessage);
+$("#Con").keypress(pushCMessage);
+
+
+function showMessage(msg) {
+    var showAllMessage = msg.val();
+    var showAllMessageContent = showAllMessage.text;
+    
+    var showAllMessageEl = $("<div/>").addClass("showAllMessage");
+    var showAllMessageContentEl = $("<span/>").text(": " + showAllMessageContent);
+    
+    var msgSpan = $("<span/>").text(showAllMessage.type);
+    //msgSpan.addClass("labelPro");
+    if (showAllMessage.type == "Pro") {
+        msgSpan.addClass("labelPro");
+    } else {
+        msgSpan.addClass("labelCon");
+    }
+    
+    msgSpan.text = showAllMessage.type;
+    showAllMessageEl.append(msgSpan);
+    showAllMessageEl.append(showAllMessageContentEl);
+    $("#element").append(showAllMessageEl);
+    
+    console.log(msgSpan);
+    
+    // var msgSpan = document.createNewElement("span");
+    // msgSpan.text = showAllMessage.type;
+    
+    
+    //showAllMessageEl.
+    //append()
+    
+}
+
+//document.createElement("span")
+
+database.on("child_added", showMessage);
+
+$("#clear").on("click", clearFunction);
+
+function clearFunction() {
+    database.remove();
+}
+
+database.on("child_removed", function(){
+    $("#element").empty();
+});
+
+
+
+//eeeeeeeeeeeeeeeeeeeeeeeEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeeeeeeeeeeeeeeeeeeEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe

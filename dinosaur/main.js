@@ -9,24 +9,7 @@ function setup() {
 
 function draw() {
     background(102, 225, 102);
-    // if (mouse1Pressed) {
     image(player, 0, 0, player.width, player.height);
-    // } else {
-    //     image(player, 0, 0, player.width/4, player.height/4);
-    // }
-    // var counter = 0;
-    // // if (mouseIsPressed) {
-    //     // console.log(mouseIsPressed);
-    //     for (var i = counter; i < playerImages.length; i++) {
-    //         if (mouseIsPressed) {
-    //             console.log(mouseIsPressed);
-    //             player = loadImage(playerImages[i]);
-    //             console.log(i);
-    //             break;
-    //         }
-    //     }
-    
-    //}
     nextImage();
 
 }
@@ -35,14 +18,6 @@ function draw() {
 
 function preload() {
     player = loadImage("BacteriaDrawing.png");
-}
-
-function mousePressed() {
-    // for (var i = 0; i < playerImages.length; i++) {
-    //     player = loadImage(playerImages[i]);
-    // }
-    
-    // mouse1Pressed = true;
 }
 
 function nextImage() {
