@@ -5,3 +5,10 @@
 .labelCon {
     color: red;
 }
+
+.Res {
+    color: blue;
+    font-family: Verdana;
+    font-size: 3em;
+    font-variant: small-caps;
+}
